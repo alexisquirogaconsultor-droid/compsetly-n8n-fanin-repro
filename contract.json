@@ -1,0 +1,22 @@
+{
+  "name": "CompSetly n8n main-branch convergence analyzer",
+  "version": "1.0",
+  "url": "https://news.compsetly.com/tools/n8n-fan-in/",
+  "execution": "local JavaScript module; no remote analysis endpoint",
+  "module": "model.mjs",
+  "exports": [
+    "parseWorkflow(text)",
+    "analyze(workflow, triggerName)",
+    "insertAppend(workflow, triggerName, targetName)"
+  ],
+  "inputs": "One user-authorized n8n JSON export. Its code is treated as data.",
+  "example": "example.json",
+  "evidence": "benchmark.json",
+  "limits": {
+    "bytes": 1000000,
+    "nodes": 500,
+    "main_edges": 2500
+  },
+  "rewrite": "Separate inactive clone after human review. Never publish or execute a real workflow automatically.",
+  "privacy": "No workflow content needs to be uploaded to CompSetly."
+}

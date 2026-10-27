@@ -1,0 +1,128 @@
+{
+  "id": "CompSetlyExampleFanIn",
+  "name": "CompSetly: synthetic branch convergence, no network",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "nodes": [
+    {
+      "id": "Manual",
+      "name": "Manual",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "parameters": {},
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "A",
+      "name": "A",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "return [{json:{id:'a1'}},{json:{id:'a2'}}];",
+        "mode": "runOnceForAllItems"
+      },
+      "position": [
+        220,
+        -100
+      ]
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "return [{json:{id:'b1'}},{json:{id:'b2'}},{json:{id:'b3'}}];",
+        "mode": "runOnceForAllItems"
+      },
+      "position": [
+        220,
+        100
+      ]
+    },
+    {
+      "id": "Batch",
+      "name": "Batch",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "return [{json:{ids:$input.all().map(x=>x.json.id),batch_size:$input.all().length}}];",
+        "mode": "runOnceForAllItems"
+      },
+      "position": [
+        500,
+        0
+      ]
+    },
+    {
+      "id": "Provider stub",
+      "name": "Provider stub",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "parameters": {
+        "jsCode": "return $input.all();",
+        "mode": "runOnceForAllItems"
+      },
+      "position": [
+        750,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Manual": {
+      "main": [
+        [
+          {
+            "node": "A",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "B",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "A": {
+      "main": [
+        [
+          {
+            "node": "Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "B": {
+      "main": [
+        [
+          {
+            "node": "Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Batch": {
+      "main": [
+        [
+          {
+            "node": "Provider stub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

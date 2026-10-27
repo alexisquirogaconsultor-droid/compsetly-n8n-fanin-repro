@@ -1,0 +1,89 @@
+{
+  "tool": "https://news.compsetly.com/tools/n8n-fan-in/",
+  "n8n_version": "2.45.4",
+  "execution_order": "v1",
+  "checks": [
+    {
+      "checked_at": "2026-10-27T18:27:51.309231+00:00",
+      "n8n_version": "2.45.4",
+      "synthetic_controlled_experiment": true,
+      "server": "ephemeral loopback, stopped on completion",
+      "results": [
+        {
+          "case": "direct_batch",
+          "execution_order": "v1",
+          "native_completed": true,
+          "http_node_runs": 2,
+          "batch_node_runs": 2,
+          "actual_loopback_http_requests": 2,
+          "batch_sizes": [
+            2,
+            3
+          ],
+          "synthetic_items_received": 5,
+          "workflow_sha256": "f3c3ed2e5a90662d3c515e2d920375692f9e0791eb1271fbe0424d980e749e76",
+          "external_requests": 0
+        },
+        {
+          "case": "merge_batch",
+          "execution_order": "v1",
+          "native_completed": true,
+          "http_node_runs": 1,
+          "batch_node_runs": 1,
+          "actual_loopback_http_requests": 1,
+          "batch_sizes": [
+            5
+          ],
+          "synthetic_items_received": 5,
+          "workflow_sha256": "25cdc810831a8ef4273a05af96173d4f433f2cd1ea529a772a2434b6f9641ec7",
+          "external_requests": 0
+        },
+        {
+          "case": "merge_raw",
+          "execution_order": "v1",
+          "native_completed": true,
+          "http_node_runs": 1,
+          "batch_node_runs": 0,
+          "actual_loopback_http_requests": 5,
+          "batch_sizes": [],
+          "synthetic_items_received": 5,
+          "workflow_sha256": "4dc04777d5da2c201864345537329a1ae5d50f2b58fedcb36d454c61143c1114",
+          "external_requests": 0
+        }
+      ],
+      "not_traffic_or_external_provider_billing": true,
+      "limit": "Only these fixtures were executed. Unknown user code, conditionals, loops, merge modes and provider batching require separate analysis."
+    },
+    {
+      "checked_at": "2026-10-27T18:49:51.497743+00:00",
+      "n8n_version": "2.45.4",
+      "synthetic_controlled_experiment": true,
+      "server": "ephemeral loopback, stopped on completion",
+      "results": [
+        {
+          "case": "patched_batch",
+          "execution_order": "v1",
+          "native_completed": true,
+          "http_node_runs": 1,
+          "batch_node_runs": 1,
+          "actual_loopback_http_requests": 1,
+          "batch_sizes": [
+            5
+          ],
+          "synthetic_items_received": 5,
+          "workflow_sha256": "5135953f778f5e31314166c9703ccfc9a99c8c766d8175f3592113f93a3fda12",
+          "external_requests": 0
+        }
+      ],
+      "not_traffic_or_external_provider_billing": true,
+      "limit": "Only these fixtures were executed. Unknown user code, conditionals, loops, merge modes and provider batching require separate analysis."
+    }
+  ],
+  "current_model_sha256": "b529a6610e986bb51af83f905f532594d9099bf209f60f0efefa3c712567f83d",
+  "limitations": [
+    "These native executions cover these synthetic fixtures only.",
+    "Graph path arrivals are not guaranteed runtime executions or HTTP request counts.",
+    "The network-free interactive example is distinct from the HTTP-counter fixtures.",
+    "No external provider was called, and no traffic or billing reduction was measured."
+  ]
+}
