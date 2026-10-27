@@ -3,7 +3,7 @@
 A focused, reproducible explanation of one failure mode: several branches reach
 the same Code node, so "Run Once for All Items" runs once for each arrival.
 
-[Analyze your workflow locally in CompSetly](https://news.compsetly.com/tools/n8n-fan-in/?src=shared).
+[Analyze your workflow locally in CompSetly](https://news.compsetly.com/tools/n8n-fan-in/?src=github-repro).
 No account is needed. Workflow JSON stays in the browser. The analyzer does not
 execute Code nodes. A proposed Append change downloads as a separate inactive clone.
 
